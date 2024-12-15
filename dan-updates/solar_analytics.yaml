@@ -1324,28 +1324,28 @@ sensor:
           time_stamp: "{{- states.sensor.sa_data_by_5min_time_stamp.state -}}"
 
       sa_todays_spa_total:
-        friendly_name: "Hot Water Energy"
+        friendly_name: "Spa Energy"
         unique_id: sa_todays_spa_total
         unit_of_measurement: "Wh"
         value_template: >-
           {{- states.sensor.sa_data_by_5min_load_spa_total.state
               if states.sensor.sa_data_by_5min_load_spa_total.state|is_number
               else this.state|default(0.0) -}}
-        icon_template: mdi:shower-head
+        icon_template: mdi:hot-tub
         device_class: "energy"
         attribute_templates:
           state_class: "total_increasing"
           time_stamp: "{{- states.sensor.sa_data_by_5min_time_stamp.state -}}"
 
-      sa_todays_subboard_oven_total:
-        friendly_name: "Stove Oven Energy"
-        unique_id: sa_todays_subboard_oven_total
+      sa_todays_subboard_total:
+        friendly_name: "Sub Board Energy"
+        unique_id: sa_todays_subboard_total
         unit_of_measurement: "Wh"
         value_template: >-
           {{- states.sensor.sa_data_by_5min_load_subboard_total.state
               if states.sensor.sa_data_by_5min_load_subboard_total.state|is_number
               else this.state|default(0.0) -}}
-        icon_template: mdi:stove
+        icon_template: mdi:power-socket-au
         device_class: "energy"
         attribute_templates:
           state_class: "total_increasing"
